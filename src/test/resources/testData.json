@@ -1,0 +1,18 @@
+{
+  "create_Data": {
+    "name": "Gowtham",
+    "job" : "QA Engineer",
+    "Designation" : "Engineer",
+    "gmail" : "gowthamn@testing.com",
+    "phoneNo" : "99874021"
+  },
+  "updated_Data": {
+    "name": "Gowtham N",
+    "job" : "Senior QA Engineer",
+    "Designation" : "Senior Engineer",
+    "gmail" : "gowthamn@testing.com",
+    "phoneNo" : "99874021",
+    "experience" : "4 years "
+  }
+
+}
