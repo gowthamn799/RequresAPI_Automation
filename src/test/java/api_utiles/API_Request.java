@@ -2,9 +2,11 @@ package api_utiles;
 
 import io.restassured.builder.ResponseBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.json.simple.parser.ParseException;
+import org.testng.Assert;
 
 import java.io.IOException;
 
@@ -19,7 +21,7 @@ public class API_Request extends ReaderFiles{
         return request;
     }
     public static ResponseSpecification respSpec(int statusCode,String key,String value){
-        return new ResponseSpecBuilder()
+               return new ResponseSpecBuilder()
                 .expectStatusCode(statusCode)
                 .expectBody(key, equalTo(value))
                 .build();
@@ -35,7 +37,11 @@ public class API_Request extends ReaderFiles{
 //        given().spec(reqSpec()).body(jsonFileReader(body).toJSONString()).when().patch(Patch_Endpoint).then().spec(respSpec(status,validatedKey,validatedvalue));
 //    }
     public void Http_clientRequest(int status,int param){
-        given().spec(reqSpec()).when().get(Get_Endpoint+param).then().statusCode(status);
+        Response response=given().spec(reqSpec()).when().get(Get_Endpoint+param);
+        String body=response.getBody().asPrettyString();
+        System.out.println(body);
+       given().then().statusCode(status);
+
     }
     public void Http_clientRequest(int status){
         given().spec(reqSpec()).when().delete(Delete_Endpoint).then().statusCode(status);
