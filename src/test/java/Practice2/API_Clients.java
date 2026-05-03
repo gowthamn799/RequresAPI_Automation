@@ -5,8 +5,6 @@ import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 
 import java.io.IOException;
-
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
 public class API_Clients extends API_Constants {
